@@ -1,4 +1,38 @@
+"use client";
+
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
 export default function Contact() {
+  const form = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_7v9bkmj",
+        "template_062zt0a",
+        form.current,
+        "bzZyUcBRwO8gm8tv7"
+      )
+      .then(() => {
+        alert("✅ Message Sent Successfully!");
+        form.current?.reset();
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("❌ Failed to send message.");
+        setLoading(false);
+      });
+  };
+
   return (
     <section
       id="contact"
@@ -24,7 +58,11 @@ export default function Contact() {
           </p>
         </div>
 
-        <form className="space-y-6 rounded-2xl border border-gray-800 bg-gray-900 p-8 shadow-lg">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="space-y-6 rounded-2xl border border-gray-800 bg-gray-900 p-8 shadow-lg"
+        >
           <div>
             <label className="mb-2 block text-sm font-medium">
               Full Name
@@ -32,7 +70,9 @@ export default function Contact() {
 
             <input
               type="text"
+              name="user_name"
               placeholder="Enter your name"
+              required
               className="w-full rounded-lg border border-gray-700 bg-black p-3 text-white outline-none focus:border-blue-500"
             />
           </div>
@@ -44,7 +84,9 @@ export default function Contact() {
 
             <input
               type="email"
+              name="user_email"
               placeholder="Enter your email"
+              required
               className="w-full rounded-lg border border-gray-700 bg-black p-3 text-white outline-none focus:border-blue-500"
             />
           </div>
@@ -55,17 +97,20 @@ export default function Contact() {
             </label>
 
             <textarea
+              name="message"
               rows={5}
               placeholder="Write your message..."
+              required
               className="w-full rounded-lg border border-gray-700 bg-black p-3 text-white outline-none focus:border-blue-500"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-blue-600 py-3 text-lg font-semibold transition hover:bg-blue-700"
+            disabled={loading}
+            className="w-full rounded-lg bg-blue-600 py-3 text-lg font-semibold transition hover:bg-blue-700 disabled:opacity-50"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
