@@ -1,11 +1,10 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import About from "./components/About";
-import WhyChooseUs from "./components/WhyChooseUs";
-import Testimonials from "./components/Testimonials";
+import HowWeHelp from "./components/HowWeHelp";
+import RealBusinessSolutions from "./components/RealBusinessSolutions";
+import AutomationSystems from "./components/AutomationSystems";
+import FinalCTA from "./components/FinalCTA";
 import FAQ from "./components/FAQ";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -13,12 +12,11 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       <Navbar />
       <Hero />
-      <Services />
-      <About />
-      <WhyChooseUs />
-      <Testimonials />
+      <HowWeHelp />
+      <RealBusinessSolutions />
+      <AutomationSystems />
+      <FinalCTA />
       <FAQ />
-      <Contact />
       <Footer />
     </main>
   );

@@ -1,77 +1,76 @@
-export default function Footer() {
-  return (
-    <footer className="bg-gray-950 border-t border-gray-800 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+import { BOOKING_LINK } from "../constants";
+  export default function Footer() {
+    return (
+    <footer className="bg-[#030712] border-t border-white/10 text-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid gap-12 md:grid-cols-3">
 
           {/* Company */}
           <div>
-            <h2 className="text-2xl font-bold text-blue-500">
+            <h2 className="text-3xl font-bold text-orange-500">
               AI Automation Lab
             </h2>
 
-            <p className="mt-4 text-gray-400">
-              We help businesses grow with AI Chatbots, Automation,
-              Websites and Custom Software.
+            <p className="mt-5 leading-7 text-gray-400">
+              We help businesses automate repetitive work with custom AI
+              solutions that save time, improve efficiency, and drive growth.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">
+            <h3 className="text-xl font-semibold">
               Quick Links
             </h3>
 
-            <ul className="space-y-2 text-gray-400">
+            <ul className="mt-5 space-y-3 text-gray-400">
+
               <li>
-                <a href="#" className="hover:text-blue-400">
+                <a href="#" className="hover:text-orange-500 transition">
                   Home
                 </a>
               </li>
 
               <li>
-                <a href="#services" className="hover:text-blue-400">
-                  Services
+                <a href="#how-we-help" className="hover:text-orange-500 transition">
+                  How We Help
                 </a>
               </li>
 
               <li>
-                <a href="#about" className="hover:text-blue-400">
-                  About
+                <a href="#faq" className="hover:text-orange-500 transition">
+                  FAQ
                 </a>
               </li>
 
-              <li>
-                <a href="#contact" className="hover:text-blue-400">
-                  Contact
-                </a>
-              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">
+            <h3 className="text-xl font-semibold">
               Contact
             </h3>
 
-            <p className="text-gray-400">
+            <p className="mt-5 text-gray-400">
               📧 priyanshu.automation.lab@gmail.com
             </p>
 
-            <p className="text-gray-400 mt-2">
-              📞 +91 98765 43210
-            </p>
+            <a
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center mt-8 rounded-full bg-orange-500 px-7 py-3 font-semibold text-white transition-all duration-300 hover:bg-orange-600 hover:scale-105"
+            >
+              Book Free Strategy Call →
+            </a>
 
-            <p className="text-gray-400 mt-2">
-              📍 Prayagraj, Uttar Pradesh
-            </p>
           </div>
 
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+        <div className="mt-12 border-t border-white/10 pt-6 text-center text-gray-500">
           © 2026 AI Automation Lab. All Rights Reserved.
         </div>
 
